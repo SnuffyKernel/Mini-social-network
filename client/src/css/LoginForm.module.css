@@ -1,0 +1,135 @@
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    font-family: "Montserrat-Medium", sans-serif;
+
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    background: rgb(8, 8, 8);
+}
+
+.login_registration_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+p{
+    margin-top: auto;
+}
+
+.text_welcome{
+    width: 284px;
+    overflow: hidden;
+}
+
+.welcome_registration {
+    text-align: center;
+    color: #EAEAEA;
+    font-size: 19px;
+    margin-bottom: 20px;
+    height: 10px;
+}
+
+.description_registration {
+    text-align: center;
+    color: #8b8b8b;
+    font-size: 14px;
+    padding-top: 13px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0E0E0E;;
+    border-radius: 14px;
+    padding: 13px;
+    padding-bottom: 4px;
+    border: 1px solid #171717;
+    box-shadow: 0px 0px 6px #000000;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 9px;
+}
+ 
+input {
+    outline: none;
+    border: none;
+    padding: 9px;
+    border-radius: 7px;
+    background-color: #171717;
+    border: 1px solid #1D1D1D;
+    box-shadow: 0px 2px 4px #000000d3;
+    text-indent: 28px;
+    color: #BFBFBF;
+}
+
+.block_icon {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 3px;
+    width: 28px;
+    height: 28px;
+    background-color: #0B0B0B;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.block_icon img {
+    max-width: 100%;
+    height: auto;
+    margin: 7px 0;
+}
+
+button[type="button"] {
+    margin-top: 7px;
+    padding: 9px 20px;
+    font-size: 13px;
+    border: none;
+    color: #b1b1b1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #171717;
+    border: 1px solid #1D1D1D;
+    box-shadow: 0px 2px 4px #000000d3;
+    border-radius: 7px;
+}
+  
+button[type="button"] {
+    margin-top: 1px;
+    padding: 9px 20px;
+    font-size: 13px;
+    border: none;
+    color: #b1b1b1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #171717;
+    border: 1px solid #1D1D1D;
+    box-shadow: 0px 2px 4px #000000d3;
+    border-radius: 7px;
+}
+  
+button[type="button"]:hover {
+    background-color: #333;
+}
+ 
+.error_message {
+    text-align: center;
+    color: red;
+}
