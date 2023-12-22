@@ -45,6 +45,22 @@ class ProfileService {
       throw ApiError.BadRequest("Ошибка");
     }
   }
+
+  async setBan(userId, ban) {
+    if (userId) {
+      await Profile.updateOne({ userId: userId }, { ban: ban });
+    } else {
+      throw ApiError.BadRequest("Ошибка");
+    }
+  }
+
+  async checkBan(userId, ban) {
+    if (userId) {
+      return await Profile.findOne({ userId: userId });
+    } else {
+      throw ApiError.BadRequest("Ошибка");
+    }
+  }
 }
 
 module.exports = new ProfileService()
