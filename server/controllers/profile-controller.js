@@ -51,6 +51,16 @@ class ProfileController {
             next(e)
         }
     }
+
+    async checkBan(req, res, next) {
+        try {
+            const { userId } = req.body
+            const ban = await profileService.checkBan(userId)
+            res.status(200).json(ban.ban);
+        } catch(e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new ProfileController()

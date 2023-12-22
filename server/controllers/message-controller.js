@@ -1,4 +1,5 @@
 const messageService = require("../service/message-service");
+const profileService = require("../service/profile-service");
 const MessageDto = require("../dtos/message-dto");
 
 class MessageController {
@@ -42,6 +43,33 @@ class MessageController {
       if (chat) {
         const messages = chat.messages;
         const messagesDto = messages.map((message) => new MessageDto(message));
+
+        let messagesCount = 0;
+        let startTime = null;
+        for(let i = 0; i < messagesDto.length; i++) {
+          const currentTime = messagesDto[i].createdAt;
+
+          if (!startTime) {
+            startTime = currentTime;
+          }
+
+          if (messagesDto[i].sender.toString() !== senderId) {
+              messagesCount = 0;
+              startTime = currentTime;
+          } 
+
+          if (currentTime - startTime <= 60000) {
+            messagesCount++;
+          } else {
+            messagesCount = 0;
+            startTime = currentTime;
+          }
+
+          if (messagesCount >= 20) {
+            await profileService.setBan(senderId, true);
+            break;
+          }
+        }
         res.status(200).json(messagesDto);
       } else {
         res.status(404).json("Чат не найден");

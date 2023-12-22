@@ -8,5 +8,6 @@ router.post("/check-active", authMiddleware, profileController.checkActive);
 router.post("/get-profile", authMiddleware, profileController.getProfile);
 router.post("/upload-img", authMiddleware, profileController.uploadImg)
 router.post("/update-status", authMiddleware, profileController.updateStatus)
+router.post("/check-ban", profileController.checkBan);
 
 module.exports = router;
