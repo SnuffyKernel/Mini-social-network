@@ -42,7 +42,8 @@ const UserForm: FC<UserFormProps> = ({ handleDialogToggle, setScroll, setGetMess
     useEffect(() => {
       userStore.setLoading(true);
       userStore.FriendsData(senderId);
-      const intervalId = setInterval(() => {
+      const intervalId = setInterval(async () => {
+        await profileStore.checkBan(senderId);
         if (!showOptions) {
           userStore.FriendsData(senderId);
         }
@@ -150,7 +151,7 @@ const UserForm: FC<UserFormProps> = ({ handleDialogToggle, setScroll, setGetMess
                                                 { 
                                                     await messageStore.delChat(friend.id, senderId); 
                                                     userStore.setLoading(true); 
-                                                    userStore.FriendsData(senderId); 
+                                                    await userStore.FriendsData(senderId); 
                                                 }
                                             }>
                                             <div className={style.delChat}>✖</div>

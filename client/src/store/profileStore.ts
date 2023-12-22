@@ -4,6 +4,7 @@ import FileUtils from '../utils/fileUtils';
 
 export default class ProfileStore {
 
+    ban: boolean = false
     active: boolean = false
     friendProfile: boolean = false
     img: string = ''
@@ -15,6 +16,10 @@ export default class ProfileStore {
 
     constructor() {
         makeAutoObservable(this);
+    }
+
+    setBan(ban: boolean) {
+        this.ban = ban
     }
 
     setActive(active: boolean) {
@@ -54,6 +59,7 @@ export default class ProfileStore {
     async getProfile(friendId: string) {
         try{
             const profile = await ProfileService.getProfile(friendId)
+            const img = profile.data.img 
             return profile.data
         } catch(e){}
     }
@@ -92,7 +98,15 @@ export default class ProfileStore {
                 await ProfileService.updateStatus(userId, status)
             }
         } catch(e) {
-            console.log(e)
         }
     } 
+
+    async checkBan(userId : string) {
+        try {
+           const response = await ProfileService.checkBan(userId);
+           this.setBan(response.data)
+        } catch (e) {
+
+        }
+    }
 }

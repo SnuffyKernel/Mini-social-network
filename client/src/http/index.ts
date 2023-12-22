@@ -24,10 +24,9 @@ $api.interceptors.response.use((config) => {
             localStorage.setItem('token', response.data.accessToken)
             return $api.request(originalRequest)
         } catch (e){
-
         }
     }
-    return
+    throw error
 })
 
 export default $api

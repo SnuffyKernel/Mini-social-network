@@ -60,7 +60,6 @@ export default class MessageStore {
     async getChat(receiverId: string, senderId: string) {
         try {
             const response = await MessageService.getChat(receiverId, senderId);
-            console.log(response)
             if (response.data) {
                 this.setMessages(response.data);
                 this.setCheckChat(true);
@@ -83,6 +82,10 @@ export default class MessageStore {
       try {
         await MessageService.delChat(receiverId, senderId)
         this.setCheckChat(false)
-      } catch(e) {}
+      } catch(e) {
+        setTimeout(() => {
+          this.delChat(receiverId, senderId)
+        }, 500)
+      }
     }
 }

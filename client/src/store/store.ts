@@ -32,7 +32,9 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken)
             this.setAuth(true)
             this.setUser(response.data.user)
-        } catch (e) {}
+        } catch (e) {
+            throw e
+        }
     }
 
     async registration(login: string, nickname:string, email: string, password: string) {
@@ -41,7 +43,9 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken)
             this.setAuth(true)
             this.setUser(response.data.user)
-        } catch (e) { }
+        } catch (e) { 
+            throw e
+        }
     }
 
     async logout() {

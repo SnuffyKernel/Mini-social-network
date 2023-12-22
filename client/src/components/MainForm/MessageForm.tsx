@@ -63,7 +63,7 @@ const MessageForm: FC<MessageFormProps> = ({ selectedUser, showDialog, receiverI
         };
     }
 
-    }, [receiverId, senderId]);
+    }, [getMessage, receiverId, senderId]);
 
     useEffect(() => {    
         if (messageContainerRef.current) {

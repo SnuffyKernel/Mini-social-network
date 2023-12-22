@@ -58,6 +58,7 @@ const LoginForm: FC = () => {
             await profileStore.createProfile(userId)
         }
        } catch(e:any){
+        console.log(e)
         setErrorMessage(e.response?.data?.message)
        }
     }

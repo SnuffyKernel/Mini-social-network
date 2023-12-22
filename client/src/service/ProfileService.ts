@@ -23,4 +23,8 @@ export default class ProfileService {
     static updateStatus(userId: string, status: string): Promise<AxiosResponse<void>> {
         return $api.post(`/update-status`, {userId: userId, status: status})
     }
+
+    static checkBan(userId: string): Promise<any> {
+        return $api.post(`/check-ban`, {userId: userId})
+    }
 }
